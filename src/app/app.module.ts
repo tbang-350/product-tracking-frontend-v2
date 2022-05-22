@@ -17,6 +17,10 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ContractorComponent } from './pages/contractor/contractor.component';
 import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ContractorListComponent } from './pages/contractor-list/contractor-list.component';
+import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
+import { EmployeeMapComponent } from './pages/employee-map/employee-map.component';
+import { ContractorMapComponent } from './pages/contractor-map/contractor-map.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { LoginComponent } from './pages/login/login.component';
     AdminComponent,
     ContractorComponent,
     ForbiddenComponent,
-    LoginComponent
+    LoginComponent,
+    ContractorListComponent,
+    EmployeeListComponent,
+    EmployeeMapComponent,
+    ContractorMapComponent
   ],
   imports: [
     BrowserModule,
