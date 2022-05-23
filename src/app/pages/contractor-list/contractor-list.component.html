@@ -1,1 +1,18 @@
-<p>contractor-list works!</p>
+<app-card title="Store" class="viewcard">
+    <div class="app-card-actions"> 
+      
+         &nbsp;
+         
+   </div>
+   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+      <app-table [tableData]="user"
+      [tableColumns]="userTableColumns"
+      [isFilterable]="true"
+      [isPageable]="true"
+      [paginationSizes]="[2,4,6]"
+      [defaultPageSize]="4"
+      [rowActionIcon]="'delete'"
+      >
+      </app-table>
+
+</app-card>

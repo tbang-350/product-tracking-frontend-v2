@@ -15,8 +15,8 @@
 
             </ul>
 
+            <button mat-raised-button color="warn" type="button" (click)="logout()" class="btn btn-danger">Logout</button>
 
-            <button mat-raised-button color="warn" type="button" class="btn btn-danger">Logout</button>
         </div>
     </div>
 </nav>
@@ -28,32 +28,32 @@
             <span>Home</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/sidenav/admin">
+        <button mat-button *ngIf="userService.roleMatch(['Admin'])" class="menu-button" routerLink="/sidenav/admin">
             <mat-icon>dashboard</mat-icon>
             <span>Admin dashboard</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/sidenav/contractor-list">
+        <button mat-button *ngIf="userService.roleMatch(['Admin'])" class="menu-button" routerLink="/sidenav/contractor-list">
             <mat-icon>person</mat-icon>
             <span>Contractors</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/sidenav/contractor-map">
+        <button mat-button *ngIf="userService.roleMatch(['Admin'])" class="menu-button" routerLink="/sidenav/contractor-map">
             <mat-icon>map</mat-icon>
             <span>Map</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/sidenav/contractor">
+        <button mat-button *ngIf="userService.roleMatch(['Contractor'])" class="menu-button" routerLink="/sidenav/contractor">
             <mat-icon>dashboard</mat-icon>
             <span>Contractor dashboard</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/sidenav/employee-list">
+        <button mat-button *ngIf="userService.roleMatch(['Contractor'])" class="menu-button" routerLink="/sidenav/employee-list">
             <mat-icon>person</mat-icon>
             <span>Employees</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/sidenav/employee-map">
+        <button mat-button *ngIf="userService.roleMatch(['Contractor'])" class="menu-button" routerLink="/sidenav/employee-map">
             <mat-icon>map</mat-icon>
             <span>Map</span>
         </button>

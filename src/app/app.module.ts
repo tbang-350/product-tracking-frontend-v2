@@ -21,6 +21,18 @@ import { ContractorListComponent } from './pages/contractor-list/contractor-list
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
 import { EmployeeMapComponent } from './pages/employee-map/employee-map.component';
 import { ContractorMapComponent } from './pages/contractor-map/contractor-map.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { RouterModule } from '@angular/router';
+import { AuthGuard } from './_auth/auth.guard';
+import { AuthInterceptor } from './_auth/auth.interceptor';
+import { UserService } from './_services/user.service';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { TableComponent } from './shared/table/table.component';
+import { CardComponent } from './shared/card/card.component';
+import { MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -34,7 +46,9 @@ import { ContractorMapComponent } from './pages/contractor-map/contractor-map.co
     ContractorListComponent,
     EmployeeListComponent,
     EmployeeMapComponent,
-    ContractorMapComponent
+    ContractorMapComponent,
+    TableComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +60,25 @@ import { ContractorMapComponent } from './pages/contractor-map/contractor-map.co
     MatInputModule,
     MatTableModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    HttpClientModule,
+    RouterModule,
+    ReactiveFormsModule,
+    MatSortModule,
+    FormsModule,
+    MatProgressBarModule,
+    MatPaginatorModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi:true
+    },
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
